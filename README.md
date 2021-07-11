@@ -23,12 +23,62 @@ F1 is an overall measure of a model’s accuracy that combines precision and rec
 
   ![image](https://user-images.githubusercontent.com/16242779/125183480-7db32000-e234-11eb-9f79-1473f0f53054.png)
 
+- **Logs**
+
+      Epoch: 01
+      Train Loss: 0.213 | Train Acc: 91.88%
+       Val. Loss: 0.270 |  Val. Acc: 89.10%
+      Train Prec: 95.75% | Val Prec: 94.28%
+       Train. Rec: 95.82% |  Val. Rec: 94.15%
+       Train. F1: 95.71% |  Val. F1: 94.13%
+      Epoch: 02
+        Train Loss: 0.186 | Train Acc: 93.03%
+         Val. Loss: 0.303 |  Val. Acc: 89.51%
+        Train Prec: 96.29% | Val Prec: 94.23%
+         Train. Rec: 96.52% |  Val. Rec: 94.67%
+         Train. F1: 96.33% |  Val. F1: 94.37%
+      Epoch: 03
+        Train Loss: 0.161 | Train Acc: 94.13%
+         Val. Loss: 0.284 |  Val. Acc: 89.21%
+        Train Prec: 97.08% | Val Prec: 96.42%
+         Train. Rec: 96.91% |  Val. Rec: 92.29%
+         Train. F1: 96.93% |  Val. F1: 94.21%
+      Epoch: 04
+        Train Loss: 0.129 | Train Acc: 95.54%
+         Val. Loss: 0.360 |  Val. Acc: 89.22%
+        Train Prec: 97.65% | Val Prec: 92.24%
+         Train. Rec: 97.80% |  Val. Rec: 96.46%
+         Train. F1: 97.68% |  Val. F1: 94.20%
+      Epoch: 05
+        Train Loss: 0.111 | Train Acc: 96.09%
+         Val. Loss: 0.318 |  Val. Acc: 89.77%
+        Train Prec: 98.04% | Val Prec: 95.61%
+         Train. Rec: 97.99% |  Val. Rec: 93.63%
+          Train. F1: 97.97% |  Val. F1: 94.52%
 
 
 ## BLEU
 
 BLEU (bilingual evaluation understudy) is an algorithm for evaluating the quality of text which has been machine-translated from one natural language to another. Quality is considered to be the correspondence between a machine's output and that of a human: "the closer a machine translation is to a professional human translation, the better it is" – this is the central idea behind BLEU. BLEU was one of the first metrics to claim a high correlation with human judgements of quality, and remains one of the most popular automated and inexpensive metrics. Scores are calculated for individual translated segments—generally sentences—by comparing them with a set of good quality reference translations. Those scores are then averaged over the whole corpus to reach an estimate of the translation's overall quality. Intelligibility or grammatical correctness are not taken into account. BLEU's output is always a number between 0 and 1. This value indicates how similar the candidate text is to the reference texts, with values closer to 1 representing more similar texts. Few human translations will attain a score of 1, since this would indicate that the candidate is identical to one of the reference translations. For this reason, it is not necessary to attain a score of 1. Because there are more opportunities to match, adding additional reference translations will increase the BLEU score.
 
+- **Logs**
+
+        Epoch: 01 | Time: 2m 0s
+          Train Loss: 5.051 | Train PPL: 156.176 | Train Bleu Score: 0.003
+           Val. Loss: 5.124 |  Val. PPL: 167.925 | Val. Bleu Score: 0.081
+        Epoch: 02 | Time: 2m 1s
+          Train Loss: 4.386 | Train PPL:  80.355 | Train Bleu Score: 0.003
+           Val. Loss: 5.251 |  Val. PPL: 190.726 | Val. Bleu Score: 0.091
+        Epoch: 03 | Time: 2m 2s
+          Train Loss: 4.087 | Train PPL:  59.577 | Train Bleu Score: 0.004
+           Val. Loss: 4.720 |  Val. PPL: 112.124 | Val. Bleu Score: 0.091
+        Epoch: 04 | Time: 2m 4s
+          Train Loss: 3.758 | Train PPL:  42.875 | Train Bleu Score: 0.004
+           Val. Loss: 4.447 |  Val. PPL:  85.389 | Val. Bleu Score: 0.091
+        Epoch: 05 | Time: 2m 5s
+          Train Loss: 3.441 | Train PPL:  31.215 | Train Bleu Score: 0.003
+           Val. Loss: 4.174 |  Val. PPL:  64.997 | Val. Bleu Score: 0.092
+- **Understanding** -The BLEU metric ranges from 0 to 1. When the machine translation is identical to one of the reference translation, it will attain a score of 1. For this reason, even a human translator will not necessarily score 1. Hence above model val Bleu score can be considered as good.
 ## Perplexity
 
   ![image](https://user-images.githubusercontent.com/16242779/125183659-067e8b80-e236-11eb-87a2-33a0e9ccf84f.png)
@@ -38,7 +88,23 @@ Perplexity is a measurement of how well a probability model predicts a sample. I
 - Less entropy (or less disordered system) is favorable over more entropy. Because predictable results are preferred over randomness. This is why people say low perplexity is good and high perplexity is bad since the perplexity is the exponentiation of the entropy (and you can safely think of the concept of perplexity as entropy).
 - A language model is a probability distribution over sentences. And the best language model is one that best predicts an unseen test set.
 
-
+        Epoch: 01 | Time: 2m 0s
+          Train Loss: 5.051 | Train PPL: 156.176 | Train Bleu Score: 0.003
+           Val. Loss: 5.124 |  Val. PPL: 167.925 | Val. Bleu Score: 0.081
+        Epoch: 02 | Time: 2m 1s
+          Train Loss: 4.386 | Train PPL:  80.355 | Train Bleu Score: 0.003
+           Val. Loss: 5.251 |  Val. PPL: 190.726 | Val. Bleu Score: 0.091
+        Epoch: 03 | Time: 2m 2s
+          Train Loss: 4.087 | Train PPL:  59.577 | Train Bleu Score: 0.004
+           Val. Loss: 4.720 |  Val. PPL: 112.124 | Val. Bleu Score: 0.091
+        Epoch: 04 | Time: 2m 4s
+          Train Loss: 3.758 | Train PPL:  42.875 | Train Bleu Score: 0.004
+           Val. Loss: 4.447 |  Val. PPL:  85.389 | Val. Bleu Score: 0.091
+        Epoch: 05 | Time: 2m 5s
+          Train Loss: 3.441 | Train PPL:  31.215 | Train Bleu Score: 0.003
+           Val. Loss: 4.174 |  Val. PPL:  64.997 | Val. Bleu Score: 0.092
+           
+- **Understanding**:  Perplexity is a measurement of how well a probability model predicts above validation data. In the context of Natural Language Processing, perplexity is one way to evaluate language models.Perplexity is just an exponentiation of the entropy. As you see the validation perplexity is going down, we can consider that model is good. 
 
 ## Bertscore
 
